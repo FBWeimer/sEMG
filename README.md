@@ -7,4 +7,4 @@ Consider read the database's institutional website, once there is more informati
 
 IEE database: https://www.ufrgs.br/ieelab/IEE_sEMG_db.php
 
-Ninapro database: http://ninapro.hevs.ch/
+Ninapro database: http://ninapro.hevs.ch
