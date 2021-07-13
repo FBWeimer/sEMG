@@ -343,6 +343,7 @@ class Signal:
         fig = plt.figure(figsize=(20, 10))
         plt.plot(df)
         fig.suptitle(title, fontsize=25)
+        fig.subplots_adjust(top=0.93)
         plt.xlabel('Samples [n]', fontsize=22)
         plt.ylabel('Amplitude (V)', fontsize=22)
         plt.legend(list(df), loc='best', ncol=3, title='Channels', title_fontsize=15, fontsize=15)
