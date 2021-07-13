@@ -336,14 +336,26 @@ class Signal:
         return emg_data_norm
 
     
-    def plot(dfEMG, title='sEMG signal'):
+    def plot(self, emg_signal, title='sEMG signal'):
     
-        df = dfEMG.loc[:, dfEMG.columns != 'label']
+        emg_channels = emg_signal.loc[:, emg_signal.columns != 'label']
+        
+        channels = list(emg_channels)
+        
         sns.set()
-        fig = plt.figure(figsize=(20, 10))
-        plt.plot(df)
-        fig.suptitle(title, fontsize=25)
-        fig.subplots_adjust(top=0.95)
-        plt.xlabel('Samples [n]', fontsize=22)
-        plt.ylabel('Amplitude (V)', fontsize=22)
-        plt.plot()
+        fig, axs = plt.subplots(len(channels), figsize=(30,30))
+
+        fig.suptitle(title, fontweight="bold", size=20)
+        fig.subplots_adjust(top=0.93)
+        jet= plt.get_cmap('Paired')
+        
+        colors = iter(jet(np.linspace(0,1,len(channels))))
+        plt.subplots_adjust(hspace=1)
+        
+        for i in range(0, len(channels)):
+            
+            axs[i].plot(emg_channels[channels[i]], color=next(colors), label='Channel '+channels[i])
+            axs[i].legend(loc='upper left')
+            axs[i].set_title('Channel ' + channels[i], fontweight="bold", size=16)
+            
+        plt.show()
