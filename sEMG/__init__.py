@@ -1,0 +1,3 @@
+"""
+Starting a new package
+"""
