@@ -343,7 +343,7 @@ class Signal:
         channels = list(emg_channels)
         
         sns.set()
-        fig, axs = plt.subplots(len(channels), figsize=(20,20))
+        fig, axs = plt.subplots(len(channels), figsize=(20,1.7*len(channels)))
 
         fig.suptitle(title, fontweight="bold", size=20)
         fig.subplots_adjust(top=0.93)
