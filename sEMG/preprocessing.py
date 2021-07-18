@@ -1,27 +1,27 @@
 """
 
-References to pre-processing, extracted and numerated as paper:
+References to this pre-processing package:
     
-[17] V. H. Cene and A. Balbinot, “Using the sEMG signal representativity
+[1] V. H. Cene and A. Balbinot, “Using the sEMG signal representativity
 improvement towards upper-limb movement classification reliability,”
 Biomed. Signal Process. Control, vol. 46, pp. 182–191, Sep. 2018.
 DOI: 10.1016/j.bspc.2018.07.014
 
-[23] T. R. Farrell and R. F. Weir, “The optimal controller delay for myoelectric prostheses,” IEEE Trans.
+[2] T. R. Farrell and R. F. Weir, “The optimal controller delay for myoelectric prostheses,” IEEE Trans.
 Neural Syst. Rehabil. Eng., vol. 15, no. 1,pp. 111–118, Mar. 2007.
 DOI: 10.1109/TNSRE.2007.891391
 
-[24] T. R. Farrell, “Determining delay created by multifunctional prosthesis
+[3] T. R. Farrell, “Determining delay created by multifunctional prosthesis
 controllers,” The J. Rehabil. Res. Develop., vol. 48, no. 6, pp. 21–37,
 2011.
 DOI: 10.1682/jrrd.2011.03.0055
 
-[29]  M. Atzori et al., “Characterization of a benchmark database for myoelectric movement classification,”
+[4]  M. Atzori et al., “Characterization of a benchmark database for myoelectric movement classification,”
 IEEE Trans. Neural Syst. Rehabil. Eng.,
 vol. 23, no. 1, pp. 73–83, Jan. 2015. 
 DOI: 10.1109/TNSRE.2014.2328495
 
-[30] V. Cene, M. Tosin, J. Machado, and A. Balbinot, “Open database
+[5] V. Cene, M. Tosin, J. Machado, and A. Balbinot, “Open database
 for accurate upper-limb intent detection using electromyography and
 reliable extreme learning machines,” Sensors, vol. 19, no. 8, p. 1864,
 Apr. 2019.
@@ -196,7 +196,7 @@ class Signal:
         
         """
         
-        Anthonyan Verdan Transform (AVT) filter, described in [17] and [30]
+        Anthonyan Verdan Transform (AVT) filter, described in [1] and [5]
         Statistical Filtering.
         
         """
