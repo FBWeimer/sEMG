@@ -191,7 +191,7 @@ class Signal:
         
         """
         
-        Anthonyan Verdan Transform (AVT) filter [17], [30]
+        Anthonyan Verdan Transform (AVT) filter, described in [17] and [30]
         Statistical Filtering.
         
         """
