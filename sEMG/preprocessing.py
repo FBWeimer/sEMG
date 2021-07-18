@@ -27,7 +27,7 @@ reliable extreme learning machines,” Sensors, vol. 19, no. 8, p. 1864,
 Apr. 2019.
 DOI: 10.3390/s19081864
 
-[31]  I. Kuzborskij, A. Gijsberts, and B. Caputo, “On the challenge
+[6]  I. Kuzborskij, A. Gijsberts, and B. Caputo, “On the challenge
 of classifying 52 hand movements from surface electromyography,” in Proc. Annu. Int. Conf. Eng. Med. Biol. Soc., Aug. 2012,
 pp. 4931–4937.
 DOI: 10.1109/EMBC.2012.6347099
