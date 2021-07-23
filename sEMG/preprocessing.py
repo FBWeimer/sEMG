@@ -98,7 +98,7 @@ class Data:
         labels = np.double(allData['restimulus'])
         
         emg_data = pd.DataFrame(emg_data)
-        emg_data['label'] = labels
+        emg_data['label'] = labels.astype(int)
         emg_data.columns = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'label']
         
         return emg_data
@@ -334,7 +334,7 @@ class Signal:
         
         columns_list = list(emg_data)
         emg_data_norm = pd.DataFrame(normalize(emg_data.loc[:, emg_data.columns != 'label']))
-        emg_data_norm['label'] = emg_data['label']
+        emg_data_norm.insert(loc=0, column='label', value=emg_data['label'])
         emg_data_norm.columns = columns_list 
 
         
