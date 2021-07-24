@@ -34,6 +34,7 @@ DOI: 10.1109/EMBC.2012.6347099
 
 """
 
+
 import numpy as np
 from numpy import savetxt
 
@@ -104,9 +105,9 @@ class Data:
         return emg_data
     
     
-    def save_pickle(self, path, X_EMG_train, y_emg_train, X_EMG_test, y_emg_test):
+    def save_pickle(self, path, archive, X_EMG_train, y_emg_train, X_EMG_test, y_emg_test):
 
-      with open(self.path+'emg_s1a1.pkl', mode = 'wb') as f:
+      with open(self.folder+path+archive, mode = 'wb') as f:
     
         pickle.dump([X_EMG_train, y_emg_train, X_EMG_test, y_emg_test], f)
         
@@ -196,7 +197,7 @@ class Signal:
         
         """
         
-        Anthonyan Verdan Transform (AVT) filter, described in [1] and [5]
+        Anthonyan Verdan Transform (AVT) filter [17], [30]
         Statistical Filtering.
         
         """
@@ -316,7 +317,7 @@ class Signal:
         for ch in range(1, 12+1): columns_list.append('MAV_'+str(ch))
         for ch in range(1, 12+1): columns_list.append('DES_'+str(ch))
         
-        df_label = pd.DataFrame(label)
+        df_label = pd.DataFrame(label.astype(int))
         df_RMS = pd.DataFrame(feat_rms)
         df_STD = pd.DataFrame(feat_std)
         df_VAR = pd.DataFrame(feat_var)
@@ -334,12 +335,21 @@ class Signal:
         
         columns_list = list(emg_data)
         emg_data_norm = pd.DataFrame(normalize(emg_data.loc[:, emg_data.columns != 'label']))
-        emg_data_norm.insert(loc=0, column='label', value=emg_data['label'])
+        emg_data_norm.insert(loc=0, column='label', value=emg_data['label'].astype(int))
         emg_data_norm.columns = columns_list 
 
         
         return emg_data_norm
-
+    
+    
+    def onehotencoder(self, emg_data):
+        
+        y_emg = emg_data['label'].values
+        ohc = OneHotEncoder(categories='auto')
+        y = ohc.fit_transform(y_emg.reshape(-1,1)).toarray()
+        
+        return y
+    
     
     def plot(self, emg_signal, title='sEMG signal'):
     
@@ -348,7 +358,8 @@ class Signal:
         channels = list(emg_channels)
         
         sns.set()
-        fig, axs = plt.subplots(len(channels), figsize=(20,1.7*len(channels)))
+        
+        fig, axs = plt.subplots(len(channels), figsize=(30,2.5*len(channels)))
 
         fig.suptitle(title, fontweight="bold", size=20)
         fig.subplots_adjust(top=0.93)
@@ -360,6 +371,7 @@ class Signal:
         for i in range(0, len(channels)):
             
             axs[i].plot(emg_channels[channels[i]], color=next(colors), label='Channel '+channels[i])
+            axs[i].legend(loc='upper left')
             axs[i].set_title('Channel ' + channels[i], fontweight="bold", size=16)
             
         plt.show()
